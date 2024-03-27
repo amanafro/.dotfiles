@@ -47,7 +47,19 @@ return {
       table.insert(opts.sources, { name = "emoji" })
     end,
   },
-
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    keys = {
+      {
+        "<leader>sB",
+        ":Telescope file_browser path=%:p:h=%:p:h<cr>",
+        desc = "Browse files",
+      },
+    },
+    config = function()
+      require("telescope").load_extension("file_browser")
+    end,
+  },
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
@@ -174,6 +186,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "tsx",
         "typescript",
+        "gopls",
       })
     end,
   },
